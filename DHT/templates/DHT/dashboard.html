@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature & Humidity Dashboard</title>
+    <link rel="stylesheet" href="{% static 'DHT/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Temperature & Humidity Dashboard</h1>
+    </header>
+
+    <section class="cards">
+        <div class="card">
+            <h2>Temperature</h2>
+            <p id="tempValue">-- °C</p>
+        </div>
+        <div class="card">
+            <h2>Humidity</h2>
+            <p id="humValue">-- %</p>
+        </div>
+        <div class="card">
+            <h2>Max Temp</h2>
+            <p id="maxTemp">-- °C</p>
+        </div>
+        <div class="card">
+            <h2>Min Temp</h2>
+            <p id="minTemp">-- °C</p>
+        </div>
+        <div class="card">
+            <h2>Avg Temp</h2>
+            <p id="avgTemp">-- °C</p>
+        </div>
+    </section>
+
+    <section class="chart-section">
+        <canvas id="chart"></canvas>
+    </section>
+
+    <section class="table-section">
+        <h2>Last Readings</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Temperature (°C)</th>
+                    <th>Humidity (%)</th>
+                </tr>
+            </thead>
+            <tbody id="readingTable">
+                <!-- Rows added by JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="{% static 'DHT/script.js' %}"></script>
+</body>
+</html>
